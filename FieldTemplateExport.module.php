@@ -44,10 +44,16 @@ class FieldTemplateExport extends WireData implements Module {
 		$f = $modules->get('InputfieldTextarea');
 		$f->label = $label;
 		$f->icon = 'files-o';
-		$f->value = wireEncodeJSON($item->getExportData(), true, true);
 		$f->addClass('noAutosize fte-select-on-focus');
 		$f->collapsed = Inputfield::collapsedYes;
 		$basics->add($f);
+		// Don't get export data for FieldtypeOptions
+		// https://github.com/processwire/processwire-issues/issues/1097
+		if($item->type instanceof FieldtypeOptions) {
+			$f->description = 'No export data for FieldtypeOptions because of [this issue](https://github.com/processwire/processwire-issues/issues/1097).';
+		} else {
+			$f->value = wireEncodeJSON($item->getExportData(), true, true);
+		}
 	}
 
 }
