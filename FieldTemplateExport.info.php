@@ -3,7 +3,7 @@
 $info = array(
 	'title' => 'Field and Template Export',
 	'summary' => 'Get export data from Edit Field and Edit Template.',
-	'version' => '0.1.1',
+	'version' => '0.1.2',
 	'author' => 'Robin Sallis',
 	'href' => 'https://github.com/Toutouwai/FieldTemplateExport',
 	'icon' => 'files-o',
