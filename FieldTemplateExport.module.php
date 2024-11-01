@@ -51,7 +51,9 @@ class FieldTemplateExport extends WireData implements Module {
 		if($item->type instanceof FieldtypeOptions) {
 			$f->description = 'No export data for FieldtypeOptions because of [this issue](https://github.com/processwire/processwire-issues/issues/1097).';
 		} else {
-			$f->value = wireEncodeJSON($item->getExportData(), true, true);
+			$export_data = [];
+			$export_data[$item->name] = $item->getExportData();
+			$f->value = wireEncodeJSON($export_data, true, true);
 			$f->notes = $this->_('If you prefer to download the export (rather than copy) click the button below.');
 			$f->appendMarkup = <<<EOT
 <button class="ui-button fte-export-button" type="button" data-fte-name="$item->name"><i class="fa fa-cloud-download"></i> Download export file</button>
