@@ -8,5 +8,5 @@ $info = array(
 	'href' => 'https://github.com/Toutouwai/FieldTemplateExport',
 	'icon' => 'files-o',
 	'autoload' => true,
-	'requires' => 'ProcessWire>=3.0.0, PHP>=5.4.0',
+	'requires' => 'ProcessWire>=3.0.242, PHP>=5.4.0',
 );
