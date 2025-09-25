@@ -30,6 +30,8 @@ class FieldTemplateExport extends WireData implements Module {
 			$item = $event->arguments(0);
 			$label = $this->_('Template export data');
 		}
+		// Return early if there is no item, or it's a dummy item with no name
+		if(!$item || !$item->name) return;
 
 		// Add module assets
 		$info = $modules->getModuleInfo($this);
